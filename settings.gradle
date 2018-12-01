@@ -1,2 +1,3 @@
-rootProject.name = 'swe-declarative-abstraction'
-
+rootProject.name = 'declarative-abstraction'
+include 'core'
+include 'app'
