@@ -3,7 +3,10 @@ package at.technikum.wien.mse.swe;
 import static at.technikum.wien.mse.swe.model.RiskCategory.NON_EXISTING;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
@@ -23,13 +26,6 @@ public class SecurityAccountOverviewConnectorTest {
     public void testRead_notNull() throws URISyntaxException {
         SecurityAccountOverview overview = sut.read(Paths.get(ClassLoader.getSystemResource(FILENAME).toURI()));
         assertNotNull("overview not found", overview);
-    }
-
-    @Test
-    public void testRead_accountNumber() throws URISyntaxException {
-        SecurityAccountOverview overview = sut.read(Paths.get(ClassLoader.getSystemResource(FILENAME).toURI()));
-        assertNotNull("accountNumber not found", overview.getAccountNumber());
-        assertEquals("12345678", overview.getAccountNumber());
     }
 
     @Test
@@ -56,12 +52,11 @@ public class SecurityAccountOverviewConnectorTest {
     }
 
     @Test
-    public void testRead_test() throws URISyntaxException, InstantiationException, IllegalAccessException {
-        Deserializer<SecurityAccountOverview> ds = new Deserializer<>(
-                SecurityAccountOverview.class,
-                ClassLoader.getSystemResource(FILENAME).toURI()
-        );
-        SecurityAccountOverview deserialized = ds.deserialize();
+    public void testRead_accountNumberShouldConformToFile() throws URISyntaxException, IOException, ReflectiveOperationException {
+        Deserializer<SecurityAccountOverview> ds = new Deserializer<>(SecurityAccountOverview.class);
+        SecurityAccountOverview deserialized = ds.deserialize(Paths.get(ClassLoader.getSystemResource(FILENAME).toURI()));
+        System.out.println(deserialized.getAccountNumber());
+        assertEquals("12345678", deserialized.getAccountNumber());
     }
 
 }

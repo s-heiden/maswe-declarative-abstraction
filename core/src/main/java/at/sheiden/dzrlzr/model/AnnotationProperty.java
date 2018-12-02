@@ -3,31 +3,17 @@ package at.sheiden.dzrlzr.model;
 
 public class AnnotationProperty {
 
-    private int startIndex;
-    private int length;
-    private String paddingCharacter;
-    private Align align;
+    public final int startIndex;
+    public final int length;
+    public final String paddingCharacter;
+    public final Align align;
+    public final String memberName;
 
-    public AnnotationProperty(int startIndex, int length, String paddingCharacter, Align align) {
+    public AnnotationProperty(String memberName, int startIndex, int length, String paddingCharacter, Align align) {
+        this.memberName = memberName;
         this.startIndex = startIndex;
         this.length = length;
         this.paddingCharacter = paddingCharacter;
         this.align = align;
-    }
-
-    public int getStartIndex() {
-        return startIndex;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public String getPaddingCharacter() {
-        return paddingCharacter;
-    }
-
-    public Align getAlign() {
-        return align;
     }
 }

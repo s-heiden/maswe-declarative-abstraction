@@ -20,7 +20,7 @@ public class SecurityAccountOverview {
      */
 
 
-    @FixedWidthField(align = Align.LEFT, length = 10, paddingCharacter = "0", startIndex = 40)
+    @FixedWidthField(align = Align.RIGHT, length = 10, paddingCharacter = "0", startIndex = 40)
     private String accountNumber;
 
     private RiskCategory riskCategory;
