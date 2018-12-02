@@ -1,14 +1,14 @@
 package at.sheiden.dzrlzr.model;
 
 
-public class DeserializableField {
+public class AnnotationProperty {
 
     private int startIndex;
     private int length;
     private String paddingCharacter;
     private Align align;
 
-    public DeserializableField(int startIndex, int length, String paddingCharacter, Align align) {
+    public AnnotationProperty(int startIndex, int length, String paddingCharacter, Align align) {
         this.startIndex = startIndex;
         this.length = length;
         this.paddingCharacter = paddingCharacter;
