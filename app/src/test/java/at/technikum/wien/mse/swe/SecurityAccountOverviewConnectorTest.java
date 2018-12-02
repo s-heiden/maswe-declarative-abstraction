@@ -8,13 +8,11 @@ import java.math.BigDecimal;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
 
-import at.sheiden.dzrlzr.Deserializer;
+import at.sheiden.dzrlzr.deserializer.Deserializer;
 import org.junit.Test;
 
 import at.technikum.wien.mse.swe.connector.SecurityAccountOverviewConnectorImpl;
 import at.technikum.wien.mse.swe.model.SecurityAccountOverview;
-
-import javax.xml.crypto.URIReferenceException;
 
 public class SecurityAccountOverviewConnectorTest {
 
@@ -58,8 +56,11 @@ public class SecurityAccountOverviewConnectorTest {
     }
 
     @Test
-    public void testRead_test() throws URISyntaxException {
-        Deserializer<SecurityAccountOverview.class> ds = new Deserializer(ClassLoader.getSystemResource(FILENAME).toURI());
+    public void testRead_test() throws URISyntaxException, InstantiationException, IllegalAccessException {
+        Deserializer<SecurityAccountOverview> ds = new Deserializer<>(
+                SecurityAccountOverview.class,
+                ClassLoader.getSystemResource(FILENAME).toURI()
+        );
         SecurityAccountOverview deserialized = ds.deserialize();
     }
 

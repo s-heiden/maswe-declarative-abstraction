@@ -1,17 +1,17 @@
-package at.sheiden.dzrlzr;
+package at.sheiden.dzrlzr.deserializer;
 
+
+import at.sheiden.dzrlzr.model.DeserializableField;
+import at.sheiden.dzrlzr.model.FixedWidthField;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Objects.requireNonNull;
+public class DeserializableFieldExtractor<T> {
 
-public class DeserializableFieldExtractor {
+    public List<DeserializableField> getDeserializableFields(Class<T> objectClass) {
 
-    public List<DeserializableField> getDeserializableFields(Object object) {
-
-        Class<?> objectClass = requireNonNull(object).getClass();
         List<DeserializableField> fields = new ArrayList<>();
 
         for (Field field : objectClass.getDeclaredFields()) {

@@ -1,4 +1,4 @@
-package at.sheiden.dzrlzr;
+package at.sheiden.dzrlzr.model;
 
 public enum Align {
     LEFT,

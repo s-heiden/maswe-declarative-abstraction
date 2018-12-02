@@ -1,9 +1,6 @@
 package at.technikum.wien.mse.swe.model;
 
 
-import at.sheiden.dzrlzr.Align;
-import at.sheiden.dzrlzr.FixedWidthField;
-
 import java.math.BigDecimal;
 
 public class Amount {

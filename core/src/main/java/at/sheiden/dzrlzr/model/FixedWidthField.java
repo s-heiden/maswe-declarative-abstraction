@@ -1,4 +1,4 @@
-package at.sheiden.dzrlzr;
+package at.sheiden.dzrlzr.model;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
