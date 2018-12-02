@@ -6,7 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 class FileReader {
-    static String getFileContent(Path file) throws IOException {
+    static String getFileContentAsString(Path file) throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(file)) {
             return reader.readLine();
         } catch (IOException e) {
