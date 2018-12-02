@@ -2,31 +2,21 @@ package at.technikum.wien.mse.swe.model;
 
 
 import at.sheiden.dzrlzr.model.Align;
-import at.sheiden.dzrlzr.model.FixedWidthField;
+import at.sheiden.dzrlzr.model.FixedWidthPrimitive;
+import at.sheiden.dzrlzr.model.FixedWidthObject;
 
 public class SecurityAccountOverview {
 
-    /*
-    private static final int RISKCATEGORY_START_INDEX = 50;
-    private static final int RISKCATEGORY_LENGTH = 2;
-    private static final int LASTNAME_START_INDEX = 52;
-    private static final int LASTNAME_LENGTH = 30;
-    private static final int FIRSTNAME_START_INDEX = 82;
-    private static final int FIRSTNAME_LENGTH = 30;
-    private static final int CURRENCY_START_INDEX = 112;
-    private static final int CURRENCY_LENGTH = 3;
-    private static final int BALANCE_START_INDEX = 115;
-    private static final int BALANCE_LENGTH = 17;
-     */
-
-
-    @FixedWidthField(align = Align.RIGHT, length = 10, paddingCharacter = "0", startIndex = 40)
+    @FixedWidthPrimitive(align = Align.RIGHT, length = 10, paddingCharacter = "0", startIndex = 40)
     private String accountNumber;
 
+    @FixedWidthObject()
     private RiskCategory riskCategory;
 
+    // @FixedWidthObject()
     private DepotOwner depotOwner;
 
+    // @FixedWidthObject()
     private Amount balance;
 
 
